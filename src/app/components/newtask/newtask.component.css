@@ -1,0 +1,103 @@
+#intro-example {
+    height: 100%;
+}
+
+.row {
+    margin-top: 1%;
+}
+
+.col {
+    background-color: #eeeeee4f;
+}
+
+.col {
+    border-radius: 12px;
+}
+
+.example-custom-placeholder {
+    background: #50505086;
+    min-height: 200px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box {
+    display: inline-grid;
+    margin-bottom: 10%;
+}
+
+
+.example-list {
+    overflow-y: auto;
+    max-height: calc(85vh - 80px);
+    /* Valor por defecto */
+    /* Valor por defecto */
+}
+
+/*
+@media screen and (max-width: 1200px) {
+    .example-list {
+        max-height: calc(90vh - 30px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .example-list {
+        max-height: calc(70vh - 30px);
+    }
+}
+*/
+
+
+
+/* Para navegadores WebKit (Chrome, Safari, Opera) */
+.example-list::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho del scrollbar */
+}
+
+.example-list::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9;
+    /* Color del scrollbar */
+    border-radius: 6px;
+    /* Radio de la esquina del scrollbar */
+}
+
+.example-list::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Color del scrollbar al pasar el mouse por encima */
+}
+
+.card {
+    margin-top: 2%;
+    min-height: 9%;
+}
+
+.btn {
+    cursor: default;
+    background-color: #787878;
+    color: wheat;
+    box-shadow: none;
+}
+
+.priority {
+    background-color: black;
+}
+
+.btn-light {
+    cursor: pointer;
+}
+
+.card-header {
+    padding-top: 15px;
+}
+
+.btn-light {
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 1920px) {
+    .containernavbar {
+        margin-top: 1.5%;
+    }
+}

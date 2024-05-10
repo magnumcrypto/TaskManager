@@ -1,0 +1,91 @@
+<!-- Background image -->
+<div id="intro-example" class="p-5 bg-image"
+    style="background-image: url('https://i.pinimg.com/originals/4e/55/07/4e5507218f1a9d904c9299598b0f596d.jpg');">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="d-flex justify-content-center h-100">
+            <div class="container-fluid text-white">
+                <!-- NAVBAR -->
+                <app-navbar></app-navbar>
+                <!-- TASK Columns -->
+                <div cdkDropListGroup style="gap: 0.5%;" class="row h-100 gx-2">
+                    <div class="col text-center">
+                        <!-- mini NAVBAR para col1 -->
+                        <div class="card border border-light shadow-0 text-white bg-dark mb-3">
+                            <div class="card-header d-flex justify-content-center align-items-center">
+                                <div class="example-button-container containernavbar w-100">
+                                    <div class="d-flex align-items-center" style="gap: 3%;">
+                                        <span disabled class="priority btn">NewProyect</span>
+                                        <button type="button" class="btn btn-light" mdbRipple rippleColor="dark">LIMPIAR
+                                            AREA</button>
+                                        <button type="button" class="btn btn-light" mdbRipple rippleColor="dark">NUEVA
+                                            TAREA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            @for (item of todo; track item) {
+                            <div class="example-box" cdkDrag>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <app-card [title]="item"></app-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <!-- TITULO para col2 -->
+                        <div class="card border border-light shadow-0 text-white bg-dark mb-3">
+                            <div class="card-header">
+                                <h2>POR HACER</h2>
+                            </div>
+                        </div>
+                        <div cdkDropList [cdkDropListData]="done" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            @for (item of done; track item) {
+                            <div class="example-box" cdkDrag>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <app-card [title]="item"></app-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <!-- titulo para col3 -->
+                        <div class="card border border-light shadow-0 text-white bg-dark mb-3">
+                            <div class="card-header">
+                                <h2>EN PROGRESO</h2>
+                            </div>
+                        </div>
+                        <div cdkDropList [cdkDropListData]="progress" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            @for (item of progress; track item) {
+                            <div class="example-box" cdkDrag>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <app-card [title]="item"></app-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <!-- titulo para col4 -->
+                        <div class="card border border-light shadow-0 text-white bg-dark mb-3">
+                            <div class="card-header">
+                                <h2>FINALIZADAS</h2>
+                            </div>
+                        </div>
+                        <div cdkDropList [cdkDropListData]="newtask" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            @for (item of newtask; track item) {
+                            <div class="example-box" cdkDrag>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                <app-card [title]="item"></app-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+/* Default height for small devices */
+
+
+.container-md {
+    margin-top: 1%;
+    max-width: 50%;
+}
+
+.navbar-dark {
+    border-radius: 12px;
+    background: rgba(245, 222, 179, 0.441) !important;
+}
