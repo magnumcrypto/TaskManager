@@ -1,0 +1,66 @@
+<div class="my_modal">
+    <div class="modal-header text-white bg-dark">
+        <h5 class="modal-title" id="exampleModalLabel">Proyecto X</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+    </div>
+    <div class="modal-body text-white bg-dark">
+        <form action="" method="post">
+            <label mdbLabel class="form-label" for="title">Titulo de la tarea:</label>
+            <input mdbInput type="text" id="title" class="form-control" />
+            <label class="form-label" for="description">Descripción de la tarea:</label>
+            <textarea mdbTextarea type="text" id="description" class="form-control" rows="4"></textarea>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="estimated_hours">Horas estimadas de la
+                            tarea:</label>
+                        <div class="input-group mb-3">
+                            <input mdbInput type="number" id="estimated_hours" class="form-control" />
+                            <span class="input-group-text" id="basic-addon2">HH:mm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="dedicated_hours">Horas dedicadas a la tarea:</label>
+                        <div class="input-group mb-3">
+                            <input mdbInput type="number" id="dedicated_hours" class="form-control" />
+                            <span class="input-group-text" id="basic-addon2">HH:mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="clasification">Clasificación tarea:</label>
+                        <select mdbSelect id="clasification" class="form-control">
+                            <option value="new_tarea">Tarea nueva</option>
+                            <option value="to_do">Para hacer</option>
+                            <option value="in_progress">En progreso</option>
+                            <option value="done">Finalizada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="priority">Prioridad:</label>
+                        <select mdbSelect id="priority" class="form-control">
+                            <option value="1">Urgente</option>
+                            <option value="2">Prioritario</option>
+                            <option value="3">Importante</option>
+                            <option value="4">Moderado</option>
+                            <option value="5">Bajo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-white bg-dark">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+            Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Crear tarea</button>
+    </div>
+</div>

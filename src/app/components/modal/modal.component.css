@@ -1,0 +1,36 @@
+.btn-close {
+    background-color: white;
+}
+
+label {
+    color: wheat;
+    margin-top: 2%;
+    margin-bottom: 0;
+}
+
+.form-control:focus {
+    border-color: wheat !important;
+    box-shadow: inset 0px 0px 0px 3px wheat !important;
+}
+
+.color-box {
+    display: inline-block !important;
+    width: 10px !important;
+    /* Ancho del cuadrado */
+    height: 10px !important;
+    /* Alto del cuadrado */
+    margin-right: 5px !important;
+    /* Espacio entre el cuadrado y el texto */
+    vertical-align: middle !important;
+    /* Alinear verticalmente con el texto */
+}
+
+.input-group-text {
+    border-radius: 6px;
+    color: wheat;
+    border: 1px solid wheat;
+}
+
+.row {
+    margin-top: 2%;
+}
