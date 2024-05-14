@@ -1,14 +1,39 @@
 import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
-import { MdbFormsModule } from 'mdb-angular-ui-kit/forms'; // Importa MdbFormsModule
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { CreateService } from '../../services/create.service';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [MdbFormsModule], // Añade MdbFormsModule a imports
+  imports: [MdbFormsModule, ReactiveFormsModule],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  constructor(public modalRef: MdbModalRef<ModalComponent>) { }
+  constructor(public modalRef: MdbModalRef<ModalComponent>, private createService: CreateService) { }
+
+  newTaskForm = new FormGroup({
+    title: new FormControl('', { nonNullable: true }),
+    description: new FormControl('', { nonNullable: true }),
+    estimated_hours: new FormControl('', { nonNullable: true }),
+    dedicated_hours: new FormControl('', { nonNullable: true }),
+    clasification: new FormControl('', { nonNullable: true }),
+    priority: new FormControl('', { nonNullable: true }),
+  })
+
+  public onSubmit() {
+    console.log(this.newTaskForm.value);
+
+    this.createService.createTask(this.newTaskForm.value).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.modalRef.close();
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    })
+  }
 }

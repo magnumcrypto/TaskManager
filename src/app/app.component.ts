@@ -4,12 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { NewtaskComponent } from './components/newtask/newtask.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NewtaskComponent, MdbModalModule, MdbFormsModule],
+  imports: [CommonModule, RouterOutlet, NewtaskComponent, MdbModalModule, MdbFormsModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
