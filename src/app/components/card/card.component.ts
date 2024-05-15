@@ -17,6 +17,7 @@ export class CardComponent {
   @Input() dedicatedHours: number = 0;
   @Input() priority: string = '';
   @Input() id: number = 0;
+  @Input() clasification: string = '';
   @Output() taskDeleted: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(public deleteService: DeleteService) { }

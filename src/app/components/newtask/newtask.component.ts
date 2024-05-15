@@ -15,28 +15,11 @@ import { Task } from '../../interfaces/tasks';
   styleUrl: './newtask.component.css'
 })
 export class NewtaskComponent {
-  //public todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   public anytask: Task[] = [];
   public done: Task[] = [];
   public progress: Task[] = [];
   public todo: Task[] = [];
-
-  todo2 = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  done2 = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
-  drop2(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-  }
+  public doneT = 'done';
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
@@ -60,6 +43,7 @@ export class NewtaskComponent {
       );
     }
   }
+
   openModal() {
     this.modalRef = this.modalService.open(ModalComponent, {
       modalClass: 'modal-dialog-centered',

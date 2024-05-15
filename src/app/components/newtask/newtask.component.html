@@ -89,10 +89,10 @@
                             @for (item of done; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card (taskDeleted)="isDeleted" [id]="item.id" [title]="item.title"
+                                <app-card (taskDeleted)="isDeleted()" [id]="item.id" [title]="item.title"
                                     [description]="item.description" [dateInit]="item.date_init"
                                     [estimatedHours]="item.estimated_hours" [dedicatedHours]="item.dedicated_hours"
-                                    [priority]="item.priority"></app-card>
+                                    [priority]="item.priority" [clasification]="doneT"></app-card>
                             </div>
                             }
                         </div>
