@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { DeleteService } from '../../services/delete.service';
 
 @Component({
   selector: 'app-card',
@@ -15,4 +16,20 @@ export class CardComponent {
   @Input() estimatedHours: number = 0;
   @Input() dedicatedHours: number = 0;
   @Input() priority: string = '';
+  @Input() id: number = 0;
+  @Output() taskDeleted: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(public deleteService: DeleteService) { }
+
+  deleteTask() {
+    this.deleteService.deleteTask(this.id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.taskDeleted.emit();
+      },
+      error: (error) => {
+        console.error('ERROR ->', error);
+      }
+    })
+  }
 }

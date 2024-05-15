@@ -1,4 +1,4 @@
-<div class="card border border-light shadow-0 text-white bg-dark mb-3" style="max-width: 23rem;">
+<div class="card border border-light shadow-0 text-white bg-dark mb-3" style="max-width: 22.5rem;">
     <div class="card-header">
         <div class="example-button-container">
             <div class="d-flex">
@@ -14,7 +14,7 @@
                 }@else if (priority === 'urgent'){
                 <span disabled class="priority me-auto btn btn-danger">Urgente</span>
                 }
-                <button class="icon_button" mat-mini-fab aria-label="Delete icon-button">
+                <button (click)="deleteTask()" class="icon_button" mat-mini-fab aria-label="Delete icon-button">
                     <i class="fas fa-trash-alt"></i>
                 </button>
                 <button class="icon_button second_i_btn" mat-mini-fab aria-label="Edit icon-button">

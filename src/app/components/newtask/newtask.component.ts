@@ -65,9 +65,14 @@ export class NewtaskComponent {
       modalClass: 'modal-dialog-centered',
       ignoreBackdropClick: true
     })
+    this.modalRef.onClose.subscribe(() => this.getAllTasks());
   }
 
   getAllTasks() {
+    this.anytask = [];
+    this.done = [];
+    this.progress = [];
+    this.todo = [];
     this.getTaskService.getTasks().subscribe({
       next: (data) => {
         Object.values(data).map((task: any) => {
@@ -90,5 +95,9 @@ export class NewtaskComponent {
         console.error(error);
       }
     })
+  }
+
+  isDeleted() {
+    this.getAllTasks();
   }
 }
