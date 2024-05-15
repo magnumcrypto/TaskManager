@@ -2,7 +2,18 @@
     <div class="card-header">
         <div class="example-button-container">
             <div class="d-flex">
+                @if (priority === 'low') {
                 <span disabled class="priority me-auto btn btn-success">Bajo</span>
+                }@else if (priority === 'moderate') {
+                <span disabled class="priority me-auto btn btn-primary">Moderado</span>
+                }@else if (priority === 'important') {
+                <span style="background-color: yellow; color: black;" disabled
+                    class="priority me-auto btn btn-primary">Importante</span>
+                }@else if (priority === 'hight') {
+                <span disabled class="priority me-auto btn btn-warning">Prioritario</span>
+                }@else if (priority === 'urgent'){
+                <span disabled class="priority me-auto btn btn-danger">Urgente</span>
+                }
                 <button class="icon_button" mat-mini-fab aria-label="Delete icon-button">
                     <i class="fas fa-trash-alt"></i>
                 </button>
@@ -18,33 +29,22 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">Descripción</h5>
-        <p class="card-text">Aqui irá la descripción de la tarjeta.</p>
+        <p class="card-text">{{description}}</p>
     </div>
     <div class="card-body">
         <div class="row">
             <div class="col-4">
                 <h6 class="card-title">Fecha inicio:</h6>
-                <p class="card-text">12/12/2024</p>
+                <p class="card-text">{{dateInit}}</p>
             </div>
             <div class="col-4">
                 <h6 class="card-title">Horas estimadas:</h6>
-                <p class="card-text">40:00 h</p>
+                <p class="card-text">{{estimatedHours}}:00 h</p>
             </div>
             <div class="col-4">
                 <h6 class="card-title">Horas dedicadas:</h6>
-                <p class="card-text">02:30 h</p>
+                <p class="card-text">{{dedicatedHours}}:00 h</p>
             </div>
         </div>
     </div>
 </div>
-
-<!-- 
-<button type="button" class="btn btn-primary btn-rounded" mdbRipple>Primary</button>
-<button type="button" class="btn btn-secondary btn-rounded" mdbRipple>Secondary</button>
-<button type="button" class="btn btn-success btn-rounded" mdbRipple>Success</button>
-<button type="button" class="btn btn-danger btn-rounded" mdbRipple>Danger</button>
-<button type="button" class="btn btn-warning btn-rounded" mdbRipple>Warning</button>
-<button type="button" class="btn btn-info btn-rounded" mdbRipple>Info</button>
-<button type="button" class="btn btn-light btn-rounded" mdbRipple>Light</button>
-<button type="button" class="btn btn-dark btn-rounded" mdbRipple>Dark</button>
--->

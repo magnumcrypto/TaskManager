@@ -24,12 +24,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                        <div cdkDropList [cdkDropListData]="anytask" class="example-list"
                             (cdkDropListDropped)="drop($event)">
-                            @for (item of todo; track item) {
+                            @for (item of anytask; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card [title]="item"></app-card>
+                                <app-card [title]="item.title" [description]="item.description"
+                                    [dateInit]="item.date_init" [estimatedHours]="item.estimated_hours"
+                                    [dedicatedHours]="item.dedicated_hours" [priority]="item.priority"></app-card>
                             </div>
                             }
                         </div>
@@ -41,12 +43,14 @@
                                 <h2>POR HACER</h2>
                             </div>
                         </div>
-                        <div cdkDropList [cdkDropListData]="done" class="example-list"
+                        <div cdkDropList [cdkDropListData]="todo" class="example-list"
                             (cdkDropListDropped)="drop($event)">
-                            @for (item of done; track item) {
+                            @for (item of todo; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card [title]="item"></app-card>
+                                <app-card [title]="item.title" [description]="item.description"
+                                    [dateInit]="item.date_init" [estimatedHours]="item.estimated_hours"
+                                    [dedicatedHours]="item.dedicated_hours" [priority]="item.priority"></app-card>
                             </div>
                             }
                         </div>
@@ -63,7 +67,9 @@
                             @for (item of progress; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card [title]="item"></app-card>
+                                <app-card [title]="item.title" [description]="item.description"
+                                    [dateInit]="item.date_init" [estimatedHours]="item.estimated_hours"
+                                    [dedicatedHours]="item.dedicated_hours" [priority]="item.priority"></app-card>
                             </div>
                             }
                         </div>
@@ -75,12 +81,14 @@
                                 <h2>FINALIZADAS</h2>
                             </div>
                         </div>
-                        <div cdkDropList [cdkDropListData]="newtask" class="example-list"
+                        <div cdkDropList [cdkDropListData]="done" class="example-list"
                             (cdkDropListDropped)="drop($event)">
-                            @for (item of newtask; track item) {
+                            @for (item of done; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card [title]="item"></app-card>
+                                <app-card [title]="item.title" [description]="item.description"
+                                    [dateInit]="item.date_init" [estimatedHours]="item.estimated_hours"
+                                    [dedicatedHours]="item.dedicated_hours" [priority]="item.priority"></app-card>
                             </div>
                             }
                         </div>

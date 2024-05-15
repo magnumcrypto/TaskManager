@@ -10,4 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CardComponent {
   @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() dateInit: string = '';
+  @Input() estimatedHours: number = 0;
+  @Input() dedicatedHours: number = 0;
+  @Input() priority: string = '';
 }
