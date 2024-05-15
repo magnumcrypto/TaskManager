@@ -7,7 +7,6 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
