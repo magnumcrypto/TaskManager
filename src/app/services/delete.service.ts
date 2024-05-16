@@ -10,6 +10,7 @@ export class DeleteService {
   constructor(public http: HttpClient) { }
 
   deleteTask(id: number): Observable<any> {
-    return this.http.delete<any>(`http://localhost:8000/tasks/${id}`);
+    const uri: string = `http://localhost:8000/tasks/${id}`;
+    return this.http.delete<any>(uri);
   }
 }

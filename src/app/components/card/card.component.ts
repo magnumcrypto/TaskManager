@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DeleteService } from '../../services/delete.service';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatIconModule, UpdateModalComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -20,7 +22,9 @@ export class CardComponent {
   @Input() clasification: string = '';
   @Output() taskDeleted: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(public deleteService: DeleteService) { }
+  modalRef: MdbModalRef<UpdateModalComponent> | null = null;
+
+  constructor(public deleteService: DeleteService, private modalService: MdbModalService) { }
 
   deleteTask() {
     this.deleteService.deleteTask(this.id).subscribe({
@@ -32,5 +36,20 @@ export class CardComponent {
         console.error('ERROR ->', error);
       }
     })
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.open(UpdateModalComponent, {
+      modalClass: 'modal-dialog-centered'
+    })
+    const updateData = {
+      title: this.title,
+      description: this.description,
+      estimatedHours: this.estimatedHours,
+      dedicatedHours: this.dedicatedHours,
+      priority: this.priority,
+      id: this.id
+    }
+    this.modalRef.component.updateData = updateData;
   }
 }

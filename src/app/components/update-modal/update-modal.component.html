@@ -1,0 +1,58 @@
+<div class="my_modal">
+    <div class="modal-header text-white bg-dark">
+        <h5 class="modal-title" id="exampleModalLabel">Tarea: {{updateData.title}}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+    </div>
+    <div class="modal-body text-white bg-dark">
+        <form (ngSubmit)="onSubmit()" [formGroup]="updateTaskForm" action="" method="post">
+            <label class="form-label" for="description">Descripción de la tarea:</label>
+            <textarea placeholder={{updateData.description}} formControlName="description" mdbTextarea type="text"
+                id="description" class="form-control" rows="4"></textarea>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="estimated_hours">Horas estimadas de la
+                            tarea:</label>
+                        <div class="input-group mb-3">
+                            <input [readonly]="true" value={{updateData.estimatedHours}} mdbInput type="number"
+                                id="estimated_hours" class="form-control" min="0" />
+                            <span class="input-group-text" id="basic-addon2">:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="dedicated_hours">Horas dedicadas a la tarea:</label>
+                        <div class="input-group mb-3">
+                            <input formControlName="dedicated_hours" value={{updateData.dedicatedHours}} mdbInput
+                                type="number" id="dedicated_hours" class="form-control"
+                                min={{updateData.dedicatedHours}} />
+                            <span class="input-group-text" id="basic-addon2">:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label mdbLabel class="form-label" for="priority">Prioridad:</label>
+                        <select formControlName="priority" mdbSelect id="priority" class="form-control">
+                            <option hidden>{{priorityOptions[updateData.priority]}}</option>
+                            <option value="0">Urgente</option>
+                            <option value="1">Prioritario</option>
+                            <option value="2">Importante</option>
+                            <option value="3">Moderado</option>
+                            <option value="4">Bajo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-white bg-dark">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+            Cerrar
+        </button>
+        <button (click)="onSubmit()" type="button" class="btn btn-primary">Actualizar</button>
+    </div>
+</div>

@@ -3,7 +3,7 @@
         <div class="example-button-container">
             <div class="d-flex">
                 @if (clasification === 'done') {
-                <span class=" priority me-auto text-white btn-lg btn-floating" style="background-color: #00af09;"
+                <span class="checked priority me-auto text-white btn-lg btn-floating" style="background-color: #00af09;"
                     href="#!" role="button" mdbRipple>
                     <i class="fas fa-check"></i>
                 </span>
@@ -24,7 +24,8 @@
                 <button (click)="deleteTask()" class="icon_button" mat-mini-fab aria-label="Delete icon-button">
                     <i class="fas fa-trash-alt"></i>
                 </button>
-                <button class="icon_button second_i_btn" mat-mini-fab aria-label="Edit icon-button">
+                <button (click)="openModal()" class="icon_button second_i_btn" mat-mini-fab
+                    aria-label="Edit icon-button">
                     <i class="fas fa-edit"></i>
                 </button>
             </div>

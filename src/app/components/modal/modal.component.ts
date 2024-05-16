@@ -26,7 +26,6 @@ export class ModalComponent {
   })
 
   public onSubmit() {
-
     this.createService.createTask(this.newTaskForm.value).subscribe({
       next: (data) => {
         console.log(data);

@@ -6,6 +6,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { GettaskService } from '../../services/gettask.service';
 import { Task } from '../../interfaces/tasks';
+import { TaskUpdateService } from '../../services/task-update.service';
 
 @Component({
   selector: 'app-newtask',
@@ -23,10 +24,11 @@ export class NewtaskComponent {
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService, private getTaskService: GettaskService) { }
+  constructor(private modalService: MdbModalService, private getTaskService: GettaskService, private taskUpdateService: TaskUpdateService) { }
 
   ngOnInit(): void {
     this.getAllTasks();
+    this.taskUpdateService.taskUpdate.subscribe(() => this.getAllTasks());
   }
 
   drop(event: CdkDragDrop<Task[]>) {
@@ -49,7 +51,9 @@ export class NewtaskComponent {
       modalClass: 'modal-dialog-centered',
       ignoreBackdropClick: true
     })
-    this.modalRef.onClose.subscribe(() => this.getAllTasks());
+    //Evitamos que se actualice el panel de tareas al cerrar el modal
+    //Solo cuando se crera una nueva tarea
+    this.modalRef.component.taskCreated.subscribe(() => this.getAllTasks());
   }
 
   getAllTasks() {

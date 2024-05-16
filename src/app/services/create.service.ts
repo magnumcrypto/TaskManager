@@ -10,6 +10,7 @@ export class CreateService {
   constructor(public http: HttpClient) { }
 
   public createTask(taskData: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8000/task/new', taskData)
+    const uri: string = 'http://localhost:8000/task/new';
+    return this.http.post<any>(uri, taskData)
   }
 }

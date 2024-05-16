@@ -36,3 +36,8 @@
 h5 {
     border-bottom: 1px solid;
 }
+
+.checked {
+    height: 34px;
+    width: 34px;
+}
