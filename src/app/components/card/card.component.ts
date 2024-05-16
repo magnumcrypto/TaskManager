@@ -29,7 +29,7 @@ export class CardComponent {
   deleteTask() {
     this.deleteService.deleteTask(this.id).subscribe({
       next: (data) => {
-        console.log(data);
+        console.log('Deleted!');
         this.taskDeleted.emit();
       },
       error: (error) => {

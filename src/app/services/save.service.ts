@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateService {
+export class SaveService {
 
   constructor(public http: HttpClient) { }
 
-  updateTask(task: any, id: number): Observable<any> {
-    const uri: string = `http://localhost:8000/tasks/${id}`;
-    return this.http.patch<any>(uri, task);
+  saveWorkspace(allTasks: any): Observable<any> {
+    const uri: string = 'http://localhost:8000/save';
+    return this.http.patch<any>(uri, allTasks);
   }
 }

@@ -7,6 +7,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { GettaskService } from '../../services/gettask.service';
 import { Task } from '../../interfaces/tasks';
 import { TaskUpdateService } from '../../services/task-update.service';
+import { SaveService } from '../../services/save.service';
 
 @Component({
   selector: 'app-newtask',
@@ -24,7 +25,12 @@ export class NewtaskComponent {
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
-  constructor(private modalService: MdbModalService, private getTaskService: GettaskService, private taskUpdateService: TaskUpdateService) { }
+  constructor(
+    private modalService: MdbModalService,
+    private getTaskService: GettaskService,
+    private taskUpdateService: TaskUpdateService,
+    private saveService: SaveService
+  ) { }
 
   ngOnInit(): void {
     this.getAllTasks();
@@ -87,5 +93,44 @@ export class NewtaskComponent {
 
   isDeleted() {
     this.getAllTasks();
+  }
+
+  saveWorkspace() {
+    let allTasks: any = [];
+
+    if (this.anytask.length > 0) {
+      this.anytask.map((card) => {
+        card.clasification = 'new_tarea';
+        allTasks.push({ id: card.id, clasification: card.clasification })
+      });
+
+    }
+    if (this.todo.length > 0) {
+      this.todo.map((card) => {
+        card.clasification = 'to_do';
+        allTasks.push({ id: card.id, clasification: card.clasification })
+      });
+    }
+    if (this.progress.length > 0) {
+      this.progress.map((card) => {
+        card.clasification = 'in_progress';
+        allTasks.push({ id: card.id, clasification: card.clasification })
+      });
+    }
+    if (this.done.length > 0) {
+      this.done.map((card) => {
+        card.clasification = 'done';
+        allTasks.push({ id: card.id, clasification: card.clasification })
+      });
+    }
+
+    this.saveService.saveWorkspace({ allTasks }).subscribe({
+      next: (data) => {
+        console.log('Saved!');
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    })
   }
 }
