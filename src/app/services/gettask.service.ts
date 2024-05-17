@@ -10,7 +10,11 @@ export class GettaskService {
 
   constructor(public http: HttpClient) { }
 
-  public getTasks(): Observable<Task> {
-    return this.http.get<Task>('http://localhost:8000/tasks');
+  public getTasks(idProyect: number): Observable<Task> {
+    return this.http.get<Task>(`http://localhost:8000/tasks/${idProyect}`);
+  }
+
+  public getProyects(): Observable<any> {
+    return this.http.get<any>('http://localhost:8000/proyects');
   }
 }

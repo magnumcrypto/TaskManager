@@ -13,6 +13,7 @@ interface UpdateData {
   dedicatedHours: number;
   priority: string;
   id: number;
+  proyectId: number;
 }
 
 @Component({
@@ -36,7 +37,8 @@ export class UpdateModalComponent {
     estimatedHours: 0,
     dedicatedHours: 0,
     priority: '',
-    id: 0
+    id: 0,
+    proyectId: 1
   }
 
   constructor(public modalRef: MdbModalRef<UpdateModalComponent>, private updateService: UpdateService, private taskUpdateService: TaskUpdateService) { }

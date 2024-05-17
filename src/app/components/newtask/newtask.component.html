@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-center h-100">
             <div class="container-fluid text-white">
                 <!-- NAVBAR -->
-                <app-navbar></app-navbar>
+                <app-navbar (proyectId)="getProyectId($event)"></app-navbar>
                 <!-- TASK Columns -->
                 <div cdkDropListGroup style="gap: 0.5%;" class="row h-100 gx-2">
                     <div class="col text-center">
@@ -30,8 +30,8 @@
                             @for (item of anytask; track item) {
                             <div class="example-box" cdkDrag>
                                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                                <app-card (taskDeleted)="isDeleted()" [id]="item.id" [title]="item.title"
-                                    [description]="item.description" [dateInit]="item.date_init"
+                                <app-card (taskDeleted)="isDeleted()" [proyectId]="proyectId" [id]="item.id"
+                                    [title]="item.title" [description]="item.description" [dateInit]="item.date_init"
                                     [estimatedHours]="item.estimated_hours" [dedicatedHours]="item.dedicated_hours"
                                     [priority]="item.priority"></app-card>
                             </div>

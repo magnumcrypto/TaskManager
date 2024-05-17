@@ -20,6 +20,7 @@ export class CardComponent {
   @Input() priority: string = '';
   @Input() id: number = 0;
   @Input() clasification: string = '';
+  @Input() proyectId: number = 1;
   @Output() taskDeleted: EventEmitter<void> = new EventEmitter<void>();
 
   modalRef: MdbModalRef<UpdateModalComponent> | null = null;
@@ -48,7 +49,8 @@ export class CardComponent {
       estimatedHours: this.estimatedHours,
       dedicatedHours: this.dedicatedHours,
       priority: this.priority,
-      id: this.id
+      id: this.id,
+      proyectId: this.proyectId
     }
     this.modalRef.component.updateData = updateData;
   }

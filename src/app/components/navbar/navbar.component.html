@@ -12,7 +12,16 @@
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="#">INICIO</a>
                     <a class="nav-link active" aria-current="page" href="#">NUEVO PROYECTO</a>
-                    <a class="nav-link" aria-current="page" href="#">PROYECTOS</a>
+                    <div mdbDropdown class="dropdown">
+                        <button type="button" class="nav-link dropdown-toggle" id="dropdownMenuButton"
+                            aria-expanded="true" mdbDropdownToggle aria-current="page" href="#">PROYECTOS</button>
+                        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @for (proyect of allProyects; track allProyects) {
+                            <li><a (click)="onClickProyect(proyect.id)" class="dropdown-item"
+                                    href="#">{{proyect.name}}</a></li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

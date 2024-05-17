@@ -21,6 +21,7 @@ export class NewtaskComponent {
   public done: Task[] = [];
   public progress: Task[] = [];
   public todo: Task[] = [];
+  public proyectId: number = 1;
   public doneT = 'done';
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
@@ -67,7 +68,7 @@ export class NewtaskComponent {
     this.done = [];
     this.progress = [];
     this.todo = [];
-    this.getTaskService.getTasks().subscribe({
+    this.getTaskService.getTasks(this.proyectId).subscribe({
       next: (data) => {
         Object.values(data).map((task: any) => {
           switch (task.clasification) {
@@ -132,5 +133,9 @@ export class NewtaskComponent {
         console.error(error);
       }
     })
+  }
+  getProyectId(id: number) {
+    this.proyectId = id;
+    this.getAllTasks();
   }
 }
