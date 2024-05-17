@@ -15,6 +15,7 @@ import { GetProyectService } from '../../services/get-proyect.service';
 })
 export class NavbarComponent implements OnInit {
   @Output() proyectId = new EventEmitter<number>();
+  @Output() proyectName = new EventEmitter<string>();
   public allProyects: Proyects[] = [];
   constructor(private getProyectsService: GettaskService, private proyectService: GetProyectService) { }
 
@@ -29,8 +30,9 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  onClickProyect(id: number) {
+  onClickProyect(id: number, proyectName?: string) {
     this.proyectId.emit(id);
+    this.proyectName.emit(proyectName);
     this.proyectService.setSelectedProjectId(id);
   }
 }
