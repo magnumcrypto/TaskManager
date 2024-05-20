@@ -33,7 +33,7 @@ export class ModalComponent implements OnInit {
 
   public onSubmit() {
     this.createService.createTask(this.newTaskForm.value, this.proyectId).subscribe({
-      next: (data) => {
+      next: () => {
         this.taskCreated.emit();
         this.modalRef.close();
       },

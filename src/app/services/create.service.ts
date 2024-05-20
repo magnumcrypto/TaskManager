@@ -13,4 +13,9 @@ export class CreateService {
     const uri: string = `http://localhost:8000/task/new/${proyectId}`;
     return this.http.post<any>(uri, taskData)
   }
+
+  public createProyect(proyectData: any): Observable<any> {
+    const uri: string = `http://localhost:8000/proyect/new`;
+    return this.http.post<any>(uri, proyectData)
+  }
 }

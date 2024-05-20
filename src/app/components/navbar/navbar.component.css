@@ -10,3 +10,23 @@
     border-radius: 12px;
     background: rgba(245, 222, 179, 0.441) !important;
 }
+
+.btn {
+    cursor: pointer;
+    background-color: #787878;
+    color: wheat;
+    box-shadow: none;
+}
+
+.btn:active {
+    color: #ffffff;
+    background-color: #505050;
+    border-color: #505050;
+    box-shadow: #505050;
+}
+
+input:focus {
+    transition: all 0.1s linear;
+    border-color: wheat;
+    box-shadow: inset 0px 0px 0px 1px wheat;
+}

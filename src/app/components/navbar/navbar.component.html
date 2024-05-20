@@ -10,7 +10,17 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup" mdbCollapse
                 #noListNav="mdbCollapse">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="#">INICIO</a>
+                    <button #popover="mdbPopover" [mdbPopover]="template" placement="bottom" class="nav-link"
+                        aria-current="page" href="#">NUEVO PROYECTO</button>
+                    <ng-template #template>
+                        <form (ngSubmit)="onSubmit()" [formGroup]="proyectForm" method="post">
+                            <label mdbLabel class="form-label" for="title">Titulo del proyecto:</label>
+                            <input formControlName="proyect_name" mdbInput type="text" id="title" class="form-control"
+                                required />
+                            <button (click)="onSubmit()" type="button" class="btn btn-primary mt-2">Crear
+                                proyecto</button>
+                        </form>
+                    </ng-template>
                     <a class="nav-link active" aria-current="page" href="#">WORKSPACE</a>
                     <div mdbDropdown class="dropdown">
                         <button type="button" class="nav-link dropdown-toggle" id="dropdownMenuButton"
