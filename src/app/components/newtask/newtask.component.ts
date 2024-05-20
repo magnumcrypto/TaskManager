@@ -37,7 +37,6 @@ export class NewtaskComponent {
       'https://as2.ftcdn.net/v2/jpg/05/84/95/65/1000_F_584956595_jJz4GqGQLZTIAiwir15VCk4sglgi9RGx.jpg',
       'https://www.shutterstock.com/shutterstock/videos/1060147385/thumb/1.jpg?ip=x480'
     ];
-  public backgroundImage: string;
 
   modalRef: MdbModalRef<ModalComponent> | null = null;
 
@@ -47,12 +46,11 @@ export class NewtaskComponent {
     private taskUpdateService: TaskUpdateService,
     private saveService: SaveService
   ) {
-    this.backgroundImage = this.imageLinks[this.generateRandomNumber()];
-    console.log(this.backgroundImage);
   }
 
-  generateRandomNumber(): number {
-    return Math.floor(Math.random() * this.imageLinks.length);
+  generateRandomImg(): string {
+    const random = Math.floor(Math.random() * this.imageLinks.length);
+    return this.imageLinks[random];
   }
 
   ngOnInit(): void {
